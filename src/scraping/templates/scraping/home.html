@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for obj in object_list %}
+        <div class="card my-3" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title"><a href={{ obj.url }}>{{ obj.title }}</a></h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ obj.city.name }} / {{ obj.language.name }}</h6>
+                <p class="card-text">{{obj.discription}}</p>
+                <h6 class="card-subtitle mb-2 text-muted">{{obj.timeStamp|date:"d.m.yy"}}</h6>
+            </div>
+        </div>
+    {% endfor %}
+            <form action="">
+                <label>City</label>
+                <input type="text" name = "city"><br>
+                <label>Language</label>
+                <input type="text" name = "language"><br>
+                <input type="submit" value = "Submit">
+            </form>
+{% endblock %}
